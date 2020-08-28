@@ -1,0 +1,85 @@
+
+.awesome{
+    width: 100vw;
+    height: 710px;
+    background-color: white;
+}
+.text-wrap{
+    width: 100vw;
+    height: 255px;
+    border-bottom: 1px solid black;
+}
+.info{
+    width: 100vw;
+    height: 455px;
+}
+
+.text-wrap p:first-child{
+    margin: 0 auto;
+    margin-top: 65px;
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    font-weight: 600;
+}
+.text-wrap p:last-child{
+    margin: 0 auto;
+    width: 730px;
+    height: 120px;
+    font-weight: 500;
+    font-size: 2.5rem;
+    text-align: center;
+}
+/* 管理小格子 */
+.info-content{
+    margin: 0 auto;
+    width: 70vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+/* 四个小格子之一 */
+.a,.b,.c,.d{
+    width: 800px;
+    height: 220px;
+}
+.a,.c{
+    margin-left: 20px;
+}
+.b,.d{
+    margin-right: 20px;
+}
+/* 小格子的全部内容 */
+.a-content,.c-content{
+    margin-top: 20px;
+    margin-left: 250px;
+    position: relative;
+}
+
+.b-content,.d-content{
+    margin-top: 20px;
+    margin-left: 100px;
+    position: relative;
+}
+.c-content,.d-content{
+    margin-top: 0;
+}
+/* 格子内的图片 */
+.a-icon img,.b-icon img,.c-icon img,.d-icon img{
+    position: absolute;
+    top: 15px;
+    width: 40px;
+    height: 60px;
+}
+/* 格子内的文字 */
+.a-text,.b-text,.c-text,.d-text{
+    margin-left: 60px;
+    padding: 5px;
+    width: 500px;
+    display: inline-block;
+    line-height: 1.5rem;
+    color: #515151;
+}
+.info h5{
+    padding: 10px 0;
+}

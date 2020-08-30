@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+ul{
+    list-style: none;
+}
 .main{
     width: 100%;
     height: 6274px;
@@ -179,28 +182,555 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
+/* 图片展示部分 */
 .picture{
     width: 100%;
     height: 800px;
-    background-color: green;
+    /* background-color: green; */
+    overflow: hidden;
+    position: relative;
 }
+.picture::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(images/03bkg.jpg);
+    background-size: cover;
+    filter: brightness(80%);
+    z-index: -1;
+}
+.pad{
+    /* width: 600px;
+    height: 600px; */
+    width: 900px;
+    height: 600px;
+    position: relative;
+    left: 65%;
+    top: 100px;
+    border-radius: 30px;
+    padding: 30px 60px;
+    padding-right: 0;
+    border: 1px solid rgba(255, 255, 255, .6);
+}
+.circle{
+    width: 10px;
+    height: 10px;
+    border: 2px  solid rgba(255, 255, 255, .6);
+    border-radius: 10px;
+    position: absolute;
+    top: 300px;
+    left: 30px;
+}
+.content{
+    box-sizing: border-box;
+    width: 800px;
+    height: 540px;
+    text-align: center;
+    background-color: white;
+}
+#pad-ul{
+    margin-left: 50px;
+    margin-right: 120px;
+    display: flex;
+    justify-content: space-around;
+}
+.pad-text{
+    box-sizing: border-box;
+    padding-top: 40px;
+    width: 100%;
+    height: 200px;
+}
+.pad-text h3{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(32, 28, 28);
+    margin: 20px;
+}
+.pad-text p{
+    font-size: 1rem;
+    color: rgb(87, 76, 76);
+}
+.pad-li{
+    width: 180px;
+    height: 250px;
+    text-align: left;
+    color: rgb(78, 67, 67);
+}
+.pad-li h3{
+    margin: 20px 0;
+    font-size: 1rem;
+}
+.pad-li p{
+    font-size: .5rem;
+}
+.pad-li img{
+    width: 100%;
+    height: 140px;
+}
+.pic-text{
+    width: 700px;
+    height: 600px;
+    position: absolute;
+    top: 160px;
+    left: 15%;
+}
+.pic-text-content{
+    text-align: center;
+}
+.pic-text-content h3{
+    margin: 0 auto;
+    width: 360px;
+    height: 200px;
+    font-size: 2.5rem;
+    text-align: left;
+    color: rgba(255, 255, 255, .6);
+    font-weight: 300;
+}
+.pic-text-content p{
+    margin: 0 auto;
+    width: 360px;
+    line-height: 1.5rem;
+    text-align: left;
+    color: rgba(255, 255, 255, .6);
+}
+.pic-box{
+    margin-left: 170px;
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+.pic-text .clickF,.clickS{
+    box-sizing: border-box;
+    width: 240px;
+    height: 60px;
+    border: 1px solid rgba(255, 255, 255, .6);
+    text-align: center;
+    line-height: 60px;
+    font-size: .8rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .6);
+}
+.pic-text .clickF{
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, .8);
+}
+
+
+
+
+
+
+/* 580 1000  1080 700 */
+
+
 .intro{
     width: 100%;
     height: 3370px;
+    box-sizing: border-box;
     background-color: white;
 }
+.introF{
+    width: 100%;
+    height: 580px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+}
+.introF-wrap{
+    width: 1050px;
+    height: 400px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+.introF h3{
+    width: 600px;
+    height: 100px;
+    margin: 55px auto 5px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 2rem;
+    font-weight: 400;
+}
+.introF .introF-card{
+    width: 280px;
+    height: 360px;
+    text-align: center;
+    padding-top: 10px;
+}
+.introF-card img{
+    width: 200px;
+    height: 95px;
+}
+
+
+.introS{
+    width: 100%;
+    height: 1000px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+.introS-wrap{
+    width: 980px;
+    height: 800px;
+    box-sizing: border-box;
+}
+.introS-wrap-top,.introS-wrap-bottom{
+    width: 980px;
+    height: 350px;
+    position: relative;
+}
+.introS-wrap-top .introS-pic,.introS-wrap-bottom .introS-pic{
+    width: 570px;
+    height: 350px;
+    
+}
+.introS-wrap-top .introS-text{
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 310px;
+    height: 250px;
+    text-align: left;
+}
+.introS-text h3{
+    padding-bottom: 20px;
+    font-weight: 400;
+    color: rgb(46, 45, 45);
+    text-shadow: 3px 3px 4px rgb(15, 15, 15);
+    line-height: 1.8rem;
+}
+.introS-text p{
+    color: rgb(117, 116, 116);
+    line-height: 1.8rem;
+}
+.introS-wrap-bottom .introS-pic{
+    position: absolute;
+    right: 0;
+    top: 100px;
+}
+.introS-wrap-bottom .introS-text{
+    position: absolute;
+    top: 150px;
+    left: 0;
+    width: 310px;
+    height: 250px;
+    text-align: left;
+}
+
+
+/* 1080 */
+.introT{
+    width: 100%;
+    height: 1000px;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.introT h3{
+    width: 400px;
+    height: 50px;
+    margin: 0 auto;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+}
+.introT p{
+    width: 650px;
+    height: 50px;
+    margin: 0 auto;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.6rem;
+    color: rgb(117, 116, 116);
+}
+.introT .introT-showpic{
+    width: 970px;
+    height: 720px;
+    margin: 0 auto;
+    margin-top: 4rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+/* .introT .introT-showpic img{
+    
+} */
+.picwrap1,.picwrap2{
+    width: 430px;
+    height: 340px;
+    /* background: url('images/introt1.jpg');
+    background-size: cover; */
+    position: relative;
+}
+.picwrap1::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: url(images/introt1.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+.picwrap2::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: url(images/introt3.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.pic-content{
+    width: 430px;
+    height: 340px;
+    font-size: 1.5rem;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+}
+.pic-content p{
+    width: 100%;
+    color: rgba(255, 255, 255, .6);
+}
+.pic-content p:first-child{
+    color: white;
+    font-size: 2rem;
+    margin-top: 100px;
+}
+.pic-contact{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.pic-content i{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url(images/推特_twitter44.png);
+    background-size: cover;
+}
+.pic-contact i:nth-child(2){
+    background-image: url(images/facebook.png);
+}
+.pic-contact i:last-child{
+    background-image: url(images/相机.png);
+}
+.picwrap1:hover::before{
+    filter: brightness(70%);
+}
+.picwrap2:hover::before{
+    filter: brightness(70%);
+}
+.pic-content:hover{
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+/* 700  */
+.introL{
+    width: 100%;
+    height: 700px;
+    box-sizing: border-box;
+    display: flex;
+}
+#contact-way{
+    box-sizing: border-box;
+    margin-top: 70px;
+    margin-left: 20%;
+    width: 470px;
+    height: 560px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+}
+#contact-way ::placeholder{
+    color: rgb(155, 148, 148);
+}
+#contact-way h3{
+    margin: 50px auto;
+    width: 470px;
+    height: 1.6rem;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+    color: rgb(78, 76, 76);
+    text-align: center;
+    text-shadow: 0px 0px 1px black;
+}
+.contact-ipt{
+    display: block;
+    width: 80%;
+    height: 3rem;
+    margin: 30px auto;
+    outline: none;
+    font-size: 1rem;
+    color: #ccc;
+    border: 1px solid #ccc;
+}
+#wenbenkuang{
+    resize: none;
+    display: block;
+    outline: none;
+    width: 80%;
+    height: 9rem;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+#wenbenkuang::placeholder{
+    font-size: 18px;
+    color: rgb(155, 148, 148);
+}
+#btn{
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 80%;
+    height: 50px;
+    font-weight: 700;
+    color: transparent;
+    text-shadow: white 0 0 1px;
+    background-color: black;
+}
+
+.introL .other{
+    display: block;
+    box-sizing: border-box;
+    width: 360px;
+    height: 360px;
+    margin:auto;
+}
+.other h3{
+    font-size: 2.5rem;
+    font-weight: 400;
+    padding-left: 5px;
+}
+.other p{
+    width: 360px;
+    height: 70px;
+    color: rgb(116, 110, 110);
+    padding-left: 5px;
+}
+.info{
+    padding-top: 50px;
+}
+.info i{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-image: url(images/地图.png);
+    background-size: cover;
+    margin-top: 10px;
+    text-align: left;
+}
+.info-item1,.info-item2,.info-item3{
+    margin: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.info-item2 i{
+    background-image: url(images/电话.png);
+    background-size: cover;
+}
+.info-item3 i{
+    background-image: url(images/话题.png);
+    background-size: cover;
+}
+.info-item1 p,.info-item2 p,.info-item3 p{
+    width: 290px;
+    display: inline-block;
+    /* margin: 5px auto; */
+    color: rgb(63, 56, 56);
+    font-weight: 600;
+    height: 44px;
+    padding-left: 5px;
+}
+.info-item1 p{
+    padding-top: 5px;
+}
+.info-item2 p,.info-item3 p{
+    line-height: 44px;
+    padding-top: 5px;
+}
+.info-item1,.info-item2,.info-item3{
+    margin-left: 0;
+}
+
+
+
+
 footer{
     width: 100%;
     height: 410px;
-    background-color: black;
+    box-sizing: border-box;
+    padding-top: 5%;
+    background-color: rgba(20, 20, 20, 1);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer li{
+    margin-top: 20px;
+    color: rgba(255, 255, 255, .6);
+}
+footer ul li:first-child{
+    color: white;
+    margin-top: 0;
+}
+.endinfo h3{
+    padding-bottom: 20px;
+}
+.endinfo p{
+    color: rgba(255, 255, 255, .6);
+}
+.endinfo .endshow i{
+    display: block;
+    width: 25px;
+    height: 25px;
+}
+.endshow{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+#ff{
+    background-image: url(images/推特1.png);
+    background-size: cover;
+}
+#ss{
+    background-image: url(images/谷歌.png);
+    background-size: cover;
+}
+#tt{
+    background-image: url(images/facebook111.png);
+    background-size: cover;
+}
+#fl{
+    background-image: url(images/ins.png);
+    background-size: cover;
+}
+#fi{
+    background-image: url(images/wechat.png);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本模式</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="800" height="600"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                for (i = 0; i< 4;i++){
+                    for (j = 0 ; j<3;j++){
+                        var x = 25+j*100;
+                        var y = 25+i*100;
+                        var radius = 20;
+                        var startangle = 0;
+                        var endangle = Math.PI+Math.PI/2*j;
+                        var clockwise = false;
+
+                        clockwise = (i%2)==0? true:false;
+                        ctx.beginPath();
+                        ctx.arc(x,y,radius,startangle,endangle,clockwise);
+                       
+                       if (i < 2){
+                        ctx.stroke();
+                       }
+                       else{
+                           ctx.fill();
+                       }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

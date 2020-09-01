@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>镂空的方形</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="800" height="600"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                /*
+                *绘制一个填充的矩形
+                *fillRect(x,y,width,height)
+                *绘制一个描边的矩形
+                *strokeRect(x,y,width,height)
+                *清除指定矩形区域
+                *clearRect(x,y,width,height)
+                */
+                // 此时想要画一个 中间镂空的矩形 而不用重叠的方法
+                // 先画一个完整的矩形 在清空中间的一部分区域 最后在中间画一个描边的矩形
+                ctx.fillRect(20,20,100,100);
+                ctx.clearRect(40,40,60,60);
+                ctx.strokeRect(45,45,50,50)
+            }
+        }
+    </script>
+</body>
+</html>

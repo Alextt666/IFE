@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本模式</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="800" height="600"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                //圆的组成：  圆心（x,y）半径 开始角度 结束角度 顺时针、逆时针
+                ctx.strokeStyle = '#ccc';
+                ctx.lineWidth = 10;
+                //画圆
+                // ctx.arc(x,y,radius,startAngle(默认三点钟角度),endAngle,anticlockwise);
+                //逆时针
+                ctx.beginPath();
+                ctx.arc(400,300,150,0,Math.PI,true);
+                ctx.stroke();
+                //顺时针
+                ctx.beginPath();
+                ctx.arc(400,400,150,0,Math.PI,false);
+                ctx.stroke();
+            }
+        }
+    </script>
+</body>
+</html>

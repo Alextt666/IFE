@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制图片</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="800" height="600"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                var img = new Image;
+                img.src = 'images/img.jpg';
+                img.onload = function(){
+                    // 参数1：图像
+                    // 参数2：X轴
+                    // 参数3：Y轴
+                    // 参数4：图片宽度
+                    // 参数5：图片高度
+                    // 参数6：绘制的X轴
+                    // 参数7：绘制的Y轴
+                    // 参数8：绘制宽度
+                    // 参数9：绘制高度
+                    ctx.drawImage(this,400,70,150,150,0,0,150,150)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

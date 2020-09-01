@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本模式</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="800" height="600"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                // 图形的基本元素就是路径
+
+                // 1.有起始路径 beginPath();
+                // 2.有起始位置 moveTo(x,y);
+                // 3.去往的点 lineto(x,y)可以多个
+                // 4.闭合路径 closePath(); 会自动的连接起始点
+                ctx.strokeRect(25,25,300,300)
+                ctx.strokeRect(50,50,250,250);
+                ctx.beginPath();
+                ctx.moveTo(100,100);
+                ctx.lineTo(200,100);
+                ctx.lineTo(100,200);
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.moveTo(250,250);
+                ctx.lineTo(250,150);
+                ctx.lineTo(150,250);
+                ctx.closePath();
+                ctx.stroke();
+            }
+        }
+    </script>
+</body>
+</html>

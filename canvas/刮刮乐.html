@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>刮刮乐</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 430px;
+            height: 450px;
+        }
+
+        canvas {
+            position: absolute;
+            left: 0;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+
+<body onload="draw()">
+    <img src="images/yy.jpg" alt="">
+    <canvas width="430" height="450"></canvas>
+    <script>
+        function draw() {
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+
+                ctx.beginPath();
+                ctx.fillStyle = 'gray'
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.lineWidth = 30;
+                ctx.lineCap = 'round'
+
+                canvas.onmousedown = function (e) {
+                    var ev = e || window.event;
+                    var x = ev.clientX;
+                    var y = ev.clientY;
+
+                    ctx.moveTo(x, y);
+                    canvas.onmousemove = function (e) {
+                        var ev = e || window.event;
+                        var x = ev.clientX;
+                        var y = ev.clientY;
+
+                        ctx.lineTo(x,y);
+                        ctx.stroke();
+                    }
+                    canvas.onmouseup = function(){
+                        canvas.onmousemove = '';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

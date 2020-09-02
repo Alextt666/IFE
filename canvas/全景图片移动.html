@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本模式</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="2100" height="800"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+
+                var x = 0;
+                function bkMove(){
+                    ctx.save();
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    ctx.translate(-x,0);
+                    ctx.drawImage(bkImg,0,0);
+                    ctx.drawImage(bkImg,canvas.width,0);
+                    x++;
+                    if(x>= canvas.width){
+                        x = 0;
+                    }
+                    ctx.restore();
+                    window.requestAnimationFrame(bkMove);
+                }
+
+                var bkImg = new Image();
+                bkImg.src = 'images/bgimg.jpg'
+                bkImg.onload = function(){
+                    bkMove();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

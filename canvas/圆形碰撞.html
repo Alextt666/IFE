@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本模式</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="800" height="600"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                //创建一个类 存放基本属性和方法
+                class Ball{
+                    constructor(x,y,r,color,speed){
+                        this.x = x;
+                        this.y = y;
+                        this.r = r;
+                        this.color = color;
+                        this.speed = speed;
+                    }
+                    //画圆的方法
+                    toDraw(){
+                        ctx.beginPath();
+                        ctx.fillStyle = this.color;
+                        ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+                        ctx.fill();
+                        ctx.closePath();
+                    }
+                    //偏移的方法
+                    toMove(){
+                        this.x +=this.speed;
+                        if(this.x>canvas.width-this.r){
+                            this.speed *= -1;
+                        }
+                        else if(this.x<this.r){
+                            this.speed *= -1;
+                        }
+                    }
+                }
+
+                //实例化两个圆
+                var ball1 = new Ball(30,30,30,'red',3);
+                var ball2 = new Ball(770,30,30,'blue',3);
+                //画出来看看（没问题）
+                ball1.toDraw();
+                ball2.toDraw();
+
+                //"两个圆的圆心距离小于半径之和"
+                function whileHit(a,b){
+                    var d = b.x-a.x;
+                    var dr = b.r+a.r;
+                    if(d<=dr){
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+
+                function animateBall(){
+                    //清除画布
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+                    //移动 并且画圆
+                    ball1.toMove();
+                    ball2.toMove();
+                    ball1.toDraw();
+                    ball2.toDraw();
+
+                    //碰撞检测
+                    if(whileHit(ball1,ball2)){ //"两个圆的圆心距离小于半径之和"
+                        ball1.speed *= -1;
+                        ball2.speed *= -1;
+                    }
+                    //调用动画
+                    window.requestAnimationFrame(animateBall);
+                }
+                animateBall();
+            }
+        }
+    </script>
+</body>
+</html>

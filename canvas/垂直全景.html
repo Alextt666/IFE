@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本模式</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="480" height="700"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+
+                var bkImg = new Image();
+                bkImg.src = '素材/feijidazhan/background.png';
+                var y = 0;
+                function bkMove(){
+                    ctx.save();
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    ctx.translate(0,y);
+                    ctx.drawImage(bkImg,0,0);
+                    ctx.drawImage(bkImg,0,-canvas.height);
+                    y++;
+                    if(y>=canvas.height){
+                        y = 0;
+                    }
+                    ctx.restore();
+                    window.requestAnimationFrame(bkMove);
+                }
+                bkMove();
+            }
+        }
+    </script>
+</body>
+</html>

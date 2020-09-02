@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本模式</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="800" height="600"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                //需求分析：
+                // 1.绘制图案
+                //     1.1 蛇头和蛇身
+                // 2.让蛇动起来
+                //     2.1 添加键盘事件
+                //     2.2 animate 运动
+                // 3.随机投放食物
+                //     3.1 投放坐标
+                //     3.2 食物是否投放到了蛇头和蛇身上（数组去重）
+                // 4.吃食物
+                //     4.1 碰撞检测
+                //     4.2 将食物添加到蛇身上
+                // 5.边缘检测， 判断游戏是否结束
+                //     5.1 碰撞检测
+                //     5.2 游戏结束
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本模式</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="800" height="600"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+                class Ball{
+                    //定义基本属性
+                    constructor(x,y,r,speedX,speedY,color){
+                        this.x = x;
+                        this.y = y;
+                        this.r = r;
+                        this.speedX = speedX;
+                        this.speedY = speedY;
+                        this.color = color;
+                    }
+
+                    //定义方法
+                    toDraw(){
+                        ctx.beginPath();
+                        ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+                        ctx.fillStyle = this.color;
+                        ctx.fill();
+                    }
+                    toMove(){
+                        this.x += this.speedX; 
+                        this.y += this.speedY; 
+                        if(this.x>canvas.width - this.r){
+                            this.speedX *= -1;
+                        }
+                        else if(this.x<this.r){
+                            this.speedX *= -1;
+                        }
+                        if(this.y>canvas.height - this.r){
+                            this.speedY *= -1;
+                        }
+                        else if(this.y<this.r){
+                            this.speedY *= -1;
+                        }
+                    }
+                }
+
+                var ball = new Ball(50,50,50,2,2,'blue');
+                ball.toDraw();
+                function start(){
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    ball.toMove();
+                    ball.toDraw();
+                    window.requestAnimationFrame(start);
+                }
+                start();
+            }
+        }
+    </script>
+</body>
+</html>

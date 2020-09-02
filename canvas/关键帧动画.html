@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本模式</title>
+    <style>
+        canvas{
+            margin: 0 auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+<body onload="draw()">
+    <canvas width="800" height="600"></canvas>
+    <script>
+        function draw(){
+            var canvas = document.querySelector('canvas');
+            if (canvas.getContext){
+                var ctx = canvas.getContext('2d');
+
+                var x = 0 , y = 0 , width = 50 ; height = 50;
+                var speedX = 1, speedY = 1;
+                ctx.beginPath();
+                ctx.fillStyle = 'red';
+                ctx.fillRect(x,y,width,height);
+                function move (){
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    x += speedX;
+                    y += speedY;
+                    if(x>canvas.width-width){
+                        speedX *= -1;
+
+                    }
+                    else if (x<0){
+                        speedX *= -1;
+                    }
+                    if(y>canvas.height-height){
+                        speedY *= -1;
+
+                    }
+                    else if (y<0){
+                        speedY *= -1;
+                    }
+                    ctx.fillRect(x,y,width,height);
+                    //插入关键帧 可以自动获取间隔时间生成动画
+                    window.requestAnimationFrame(move);
+                }
+                move();
+
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale = 1.0" />
+    <title>代码雨</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overflow: hidden;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="rain"></canvas>
+  </body>
+  <script>
+    //获取元素
+    var cvs = document.querySelector("#rain");
+
+    //获取画笔
+    var ctx = cvs.getContext("2d");
+
+    //获取屏幕宽高
+    const width = window.screen.width;
+    const height = window.screen.height; //返回值为数字
+
+    //设置画布的宽高和屏幕一致
+    cvs.width = width;
+    cvs.height = height;
+
+    //内容
+    var arr = ["H", "e", "l", "l", "o"];
+
+    //整个屏幕能显示多少行
+    var fontSize = 20;
+    const rows = Math.ceil(height / fontSize);
+    const columns = Math.ceil(width / fontSize);
+
+    //计算行位置的数组 因为小于columns的话 会导致返回NAN 所以这里需要的是columns
+    var lines = new Array(columns).fill(0);
+    console.log(lines);
+    //定时调用画字符
+    setInterval(() => {
+      //用不透明的方框 遮盖画布 多次遮挡
+      ctx.fillStyle = "rgba(0,0,0,.2)";
+      ctx.fillRect(0, 0, width, height);
+
+      //通过循环绘制多列
+      ctx.fillStyle = "#00ff00";
+      for (let j = 0; j < arr.length; j++) {
+        for (let i = 0; i < columns; i++) {
+          ctx.fillText(arr[j], i * fontSize, lines[i] * fontSize);
+          lines[i]++;
+          if (Math.random() < 0.05) {
+            lines[i] = 0;
+          }
+        }
+      }
+    }, 100);
+  </script>
+</html>
